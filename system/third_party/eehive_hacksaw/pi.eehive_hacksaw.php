@@ -66,9 +66,12 @@ var $return_data = "";
 		$stripped_content = strip_tags($tag_content, $allow);
                 $new_content = $stripped_content;
         }
+        
+        // Remove non breaking spaces (because generally we're not going to want them)
+        $new_content = str_replace("&nbsp;", "-", $new_content);
 	
 	// Return the new content
-    $this->return_data = $new_content;
+    	$this->return_data = $new_content;
     
   }
   
